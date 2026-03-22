@@ -2,15 +2,24 @@
 
 add_newline = false
 command_timeout = 100
+# format = """
+# $os$username$hostname$nodejs$directory$git_branch$git_status
+# [ ](bold)
+# """
+
 format = """
-$os$username$hostname$nodejs$directory$git_branch$git_status
-
+$os$username$hostname$directory\
+$fill\
+$nodejs$git_branch$git_status
+$character
 """
+
+# right_format = "$nodejs$git_branch$git_status"
 
 # Drop ugly default prompt characters
 [character]
-success_symbol = ''
-error_symbol = ''
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
 
 # ---
 
@@ -19,10 +28,11 @@ format = '[$symbol](bold white) '
 disabled = false
 
 [os.symbols]
-Windows = ' '
+Windows = ''
 Arch = '󰣇'
 Ubuntu = ''
 Macos = '󰀵'
+CachyOS = '󰣇'
 
 # ---
 
@@ -31,7 +41,7 @@ Macos = '󰀵'
 style_user = 'white bold'
 style_root = 'black bold'
 format = '[$user]($style) '
-disabled = false
+disabled = true
 show_always = true
 
 # Shows the hostname
@@ -49,10 +59,17 @@ read_only_style = '197'
 read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Developer" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
 # Shows current git branch
 [git_branch]
-symbol = ' '
-format = 'via [$symbol$branch]($style)'
+symbol = ' '
+format = 'on [$symbol$branch]($style)'
 # truncation_length = 4
 truncation_symbol = '…/'
 style = 'bold green'
@@ -62,16 +79,16 @@ style = 'bold green'
 format = '([ \( $all_status$ahead_behind\)]($style) )'
 style = 'bold green'
 conflicted = '[ confliced=${count}](red) '
-up_to_date = '[󰘽 up-to-date](green) '
-untracked = '[󰋗 untracked=${count}](red) '
+up_to_date = '[󰘽](green) '
+untracked = '[󰋗 ${count}](red) '
 ahead = ' ahead=${count}'
 diverged = ' ahead=${ahead_count}  behind=${behind_count}'
 behind = ' behind=${count}'
 stashed = '[ stashed=${count}](green) '
-modified = '[󰛿 modified=${count}](yellow) '
-staged = '[󰐗 staged=${count}](green) '
-renamed = '[󱍸 renamed=${count}](yellow) '
-deleted = '[󰍶 deleted=${count}](red) '
+modified = '[󰛿 ${count}](yellow) '
+staged = '[󰐗 ${count}](green) '
+renamed = '[󱍸 ${count}](yellow) '
+deleted = '[󰍶 ${count}](red) '
 
 # ---
 
@@ -88,6 +105,7 @@ disabled = true
 disabled = false
 
 [nodejs]
+
 disabled = false
 
 [ruby]
