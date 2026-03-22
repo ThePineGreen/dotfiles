@@ -1,3 +1,11 @@
+# Add Homebrew to PATH on macOS
+switch (uname)
+    case Darwin
+        if test -x /opt/homebrew/bin/brew
+            eval (/opt/homebrew/bin/brew shellenv)
+        end
+    end
+
 starship init fish | source
 
 # Replace ls with eza
@@ -18,11 +26,3 @@ alias ......='cd ../../../../..'
 function history
     builtin history --show-time='%F %T '
 end
-
-#
-switch (uname)
-    case 'Darwin'
-        if test -x /opt/homebrew/bin/brew
-            eval (/opt/homebrew/bin/brew shellenv)
-        end
-    end
