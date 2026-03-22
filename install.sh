@@ -13,5 +13,6 @@ link starship/starship.toml starship.toml
 # Kitty
 mkdir -p "$CONFIG/kitty"
 link kitty/kitty.conf kitty/kitty.conf
+link kitty/kitty.app.png kitty/kitty.app.png
 
 echo "Done!"
