@@ -18,3 +18,11 @@ alias ......='cd ../../../../..'
 function history
     builtin history --show-time='%F %T '
 end
+
+#
+switch (uname)
+    case 'Darwin'
+        if test -x /opt/homebrew/bin/brew
+            eval (/opt/homebrew/bin/brew shellenv)
+        end
+    end
