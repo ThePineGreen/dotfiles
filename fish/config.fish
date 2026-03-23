@@ -8,6 +8,8 @@ switch (uname)
 
 starship init fish | source
 
+set -g fish_greeting
+
 # Replace ls with eza
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
