@@ -24,6 +24,10 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+# AI stuff
+alias cp='copilot --disable-builtin-mcps'
+alias oc='opencode'
+
 # Fish command history
 function history
     builtin history --show-time='%F %T '
