@@ -20,6 +20,9 @@ mkdir -p "$CONFIG/kitty"
 link kitty/kitty.conf kitty/kitty.conf
 link kitty/kitty.app.png kitty.kitty.app.png
 
+# Zsh
+ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+
 # Pi extensions and subagents
 mkdir -p "$PI_AGENT_DIR/extensions/subagent" "$PI_AGENT_DIR/agents"
 ln -sf "$DOTFILES/pi/extensions/project-references.ts" "$PI_AGENT_DIR/extensions/project-references.ts"
